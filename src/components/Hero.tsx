@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Droplets, Sparkles } from 'lucide-react';
+import { ArrowRight, Droplets, Sparkles, ShoppingBag } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 const FloatingShape = ({ delay, duration, className, children }: { delay: number, duration: number, className: string, children: React.ReactNode }) => (
   <motion.div
@@ -21,8 +22,10 @@ const FloatingShape = ({ delay, duration, className, children }: { delay: number
 );
 
 export default function Hero() {
+  const { addToCart } = useCart();
+
   return (
-    <section className="relative overflow-hidden bg-texture-sand pt-24 pb-40">
+    <section className="relative overflow-hidden bg-texture-sand pt-16 pb-32 md:pt-24 md:pb-40">
       {/* Animated Background Shapes */}
       <FloatingShape delay={0} duration={8} className="top-20 left-10 text-denim-200/40 -z-10 drop-shadow-lg">
         <svg width="200" height="200" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +50,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full skeuo-inset text-denim-800 font-bold text-sm mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full skeuo-inset text-denim-800 font-bold text-sm mb-6 md:mb-8"
             >
               <Droplets className="w-4 h-4 text-denim-600 drop-shadow-sm" />
               <span className="drop-shadow-sm">Saved 3781+ litres of water</span>
@@ -61,7 +64,7 @@ export default function Hero() {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-denim-800/90 font-body mb-10 leading-relaxed max-w-lg drop-shadow-sm font-medium">
+            <p className="text-lg md:text-2xl text-denim-800/90 font-body mb-8 md:mb-10 leading-relaxed max-w-lg drop-shadow-sm font-medium">
               Woven from waste. Stitched with soul. Fashion that speaks softly — but with purpose.
             </p>
             
@@ -82,7 +85,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative"
+            className="relative mt-8 lg:mt-0"
           >
             {/* Continuous floating animation for the image container */}
             <motion.div 
@@ -110,11 +113,20 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0, rotate: -5 }}
               whileHover={{ scale: 1.05, rotate: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="absolute -bottom-6 -left-6 skeuo-leather-patch skeuo-stitch p-6 rounded-2xl max-w-xs z-20 cursor-pointer"
+              className="absolute -bottom-6 left-2 sm:-left-6 skeuo-leather-patch skeuo-stitch p-4 sm:p-6 rounded-2xl max-w-[16rem] sm:max-w-xs z-20 cursor-pointer group"
+              onClick={() => addToCart({
+                id: 'revival',
+                name: 'Revival Pouch',
+                price: '₹99',
+                image: 'https://picsum.photos/seed/pouch/800/1000'
+              })}
             >
-              <p className="font-sans font-bold text-sand-50 text-xl mb-1">Revival Pouch</p>
-              <p className="font-body text-sand-100/90 text-sm mb-3 font-medium">Small in size. Not in purpose. 7" everyday carry. Zipped. Flexible. Easy to hold.</p>
-              <p className="font-sans font-bold text-sand-50 text-lg">₹99</p>
+              <p className="font-sans font-bold text-sand-50 text-lg sm:text-xl mb-1 flex items-center justify-between">
+                Revival Pouch
+                <ShoppingBag className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </p>
+              <p className="font-body text-sand-100/90 text-xs sm:text-sm mb-2 sm:mb-3 font-medium">Small in size. Not in purpose. 7" everyday carry. Zipped. Flexible. Easy to hold.</p>
+              <p className="font-sans font-bold text-sand-50 text-base sm:text-lg">₹99</p>
             </motion.div>
           </motion.div>
         </div>

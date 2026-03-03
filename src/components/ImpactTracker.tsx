@@ -21,7 +21,7 @@ export default function ImpactTracker() {
                On your arm, not in the landfill. Fast fashion dumps a truckload of clothes every second — that's 92 million tons of solid waste every year. We're changing that.
             </p>
             
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="skeuo-card-dark p-8 rounded-3xl relative overflow-hidden group"
@@ -95,7 +95,7 @@ export default function ImpactTracker() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative mt-12 lg:mt-0"
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden relative skeuo-card-dark p-3">
               <div className="w-full h-full rounded-[2.5rem] overflow-hidden skeuo-inset-dark relative">
@@ -109,14 +109,14 @@ export default function ImpactTracker() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-denim-900 via-denim-900/40 to-transparent opacity-90"></div>
                 
-                <div className="absolute bottom-10 left-10 right-10">
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 skeuo-inset-dark rounded-2xl border border-denim-800">
-                      <Leaf className="w-8 h-8 text-sand-200 drop-shadow-sm" />
+                    <div className="p-2 md:p-3 skeuo-inset-dark rounded-xl md:rounded-2xl border border-denim-800">
+                      <Leaf className="w-6 h-6 md:w-8 md:h-8 text-sand-200 drop-shadow-sm" />
                     </div>
-                    <span className="font-sans font-bold text-3xl text-sand-50 drop-shadow-md">Built to Last</span>
+                    <span className="font-sans font-bold text-2xl md:text-3xl text-sand-50 drop-shadow-md">Built to Last</span>
                   </div>
-                  <p className="font-body text-sand-200 text-lg leading-relaxed font-medium drop-shadow-sm">
+                  <p className="font-body text-sand-200 text-base md:text-lg leading-relaxed font-medium drop-shadow-sm">
                     The very first pair of jeans was made in 1873... and some are still around today. Denim was made to last.
                   </p>
                 </div>
@@ -128,7 +128,7 @@ export default function ImpactTracker() {
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               style={{ willChange: 'transform' }}
-              className="absolute -top-12 -right-12 w-40 h-40 skeuo-leather-patch skeuo-stitch rounded-full flex items-center justify-center shadow-2xl z-20"
+              className="absolute -top-6 -right-2 md:-top-12 md:-right-12 w-28 h-28 md:w-40 md:h-40 skeuo-leather-patch skeuo-stitch rounded-full flex items-center justify-center shadow-2xl z-20"
             >
               <svg viewBox="0 0 100 100" className="w-full h-full p-2">
                 <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
@@ -138,7 +138,7 @@ export default function ImpactTracker() {
                   </textPath>
                 </text>
               </svg>
-              <Recycle className="absolute w-8 h-8 text-sand-100 drop-shadow-md" />
+              <Recycle className="absolute w-6 h-6 md:w-8 md:h-8 text-sand-100 drop-shadow-md" />
             </motion.div>
           </motion.div>
         </div>
