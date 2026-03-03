@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
 import ImpactTracker from './components/ImpactTracker';
 import InstitutionalOrders from './components/InstitutionalOrders';
+import Testimonials from './components/Testimonials';
 import DonationCTA from './components/DonationCTA';
 import Footer from './components/Footer';
 import { CartProvider } from './context/CartContext';
@@ -24,6 +25,7 @@ export default function App() {
           <ProductGrid />
           <ImpactTracker />
           <InstitutionalOrders />
+          <Testimonials />
           <DonationCTA />
         </main>
         <Footer />

@@ -124,7 +124,7 @@ export default function ProductGrid() {
                           });
                         }}
                         className="flex items-center justify-center p-3 md:p-4 skeuo-btn-denim text-sand-50 rounded-xl md:rounded-2xl font-bold transition-all duration-300 shadow-lg hover:scale-105 active:scale-95"
-                        aria-label="Add to Cart"
+                        aria-label="Add to Bag"
                       >
                         <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
                       </button>

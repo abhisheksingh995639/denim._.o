@@ -33,9 +33,9 @@ export default function DonationCTA() {
             <motion.div 
               animate={{ y: [0, -20, 0], rotate: [-5, 5, -5] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-10 -right-10 skeuo-leather-patch skeuo-stitch p-6 rounded-3xl z-20"
+              className="absolute -top-6 -right-2 md:-top-10 md:-right-10 skeuo-leather-patch skeuo-stitch p-4 md:p-6 rounded-2xl md:rounded-3xl z-20"
             >
-              <Package className="w-12 h-12 drop-shadow-md" />
+              <Package className="w-8 h-8 md:w-12 md:h-12 drop-shadow-md" />
             </motion.div>
           </motion.div>
 
