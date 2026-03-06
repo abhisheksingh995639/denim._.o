@@ -12,7 +12,41 @@ export default function CheckoutModal() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        const cartText = items.map(item => `- ${item.quantity}x ${item.name} (${item.price})`).join('\n');
+        
+        const emailBody = `Hello DenimO Team,
+
+I would like to place an order for the following items:
+
+${cartText}
+
+Total Amount: ₹${cartTotal.toFixed(2)}
+
+Delivery Details:
+Name: ${data.name}
+Mobile: ${data.mobile}
+${data.altMobile ? `Alt Mobile: ${data.altMobile}\n` : ''}Email: ${data.email}
+
+Address:
+${data.flat}, ${data.building}
+${data.road}, ${data.landmark}
+${data.city} - PIN: ${data.pincode}
+
+Looking forward to receiving my order!
+
+Thank you,
+${data.name}`;
+
+        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=orders@denimo.com&su=${encodeURIComponent(`New Order from ${data.name}`)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Open Gmail compose link in a new tab
+        window.open(mailtoLink, '_blank');
+
+        // Simulate success
         setTimeout(() => {
             setIsSubmitting(false);
             setOrderPlaced(true);
@@ -93,19 +127,19 @@ export default function CheckoutModal() {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="space-y-1.5 md:col-span-2">
                                                     <label htmlFor="name" className="text-sm font-bold text-denim-900 ml-1">Full Name</label>
-                                                    <input required type="text" id="name" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="John Doe" />
+                                                    <input required type="text" id="name" name="name" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="John Doe" />
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label htmlFor="mobile" className="text-sm font-bold text-denim-900 ml-1">Mobile No.</label>
-                                                    <input required type="tel" id="mobile" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="+91 98765 43210" />
+                                                    <input required type="tel" id="mobile" name="mobile" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="+91 98765 43210" />
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label htmlFor="email" className="text-sm font-bold text-denim-900 ml-1">Email</label>
-                                                    <input required type="email" id="email" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="john@example.com" />
+                                                    <input required type="email" id="email" name="email" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="john@example.com" />
                                                 </div>
                                                 <div className="space-y-1.5 md:col-span-2">
                                                     <label htmlFor="altMobile" className="text-sm font-bold text-denim-900 ml-1">Alt Mobile No. <span className="text-denim-900/40 font-normal">(Optional)</span></label>
-                                                    <input type="tel" id="altMobile" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="+91" />
+                                                    <input type="tel" id="altMobile" name="altMobile" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="+91" />
                                                 </div>
                                             </div>
                                         </div>
@@ -118,27 +152,27 @@ export default function CheckoutModal() {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="space-y-1.5 md:col-span-2">
                                                     <label htmlFor="flat" className="text-sm font-bold text-denim-900 ml-1">Flat/House No & Floor</label>
-                                                    <input required type="text" id="flat" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Flat 402, 4th Floor" />
+                                                    <input required type="text" id="flat" name="flat" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Flat 402, 4th Floor" />
                                                 </div>
                                                 <div className="space-y-1.5 md:col-span-2">
                                                     <label htmlFor="building" className="text-sm font-bold text-denim-900 ml-1">Building/Society</label>
-                                                    <input required type="text" id="building" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Sunshine Apartments" />
+                                                    <input required type="text" id="building" name="building" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Sunshine Apartments" />
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label htmlFor="road" className="text-sm font-bold text-denim-900 ml-1">Road/Colony</label>
-                                                    <input required type="text" id="road" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. MG Road" />
+                                                    <input required type="text" id="road" name="road" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. MG Road" />
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label htmlFor="landmark" className="text-sm font-bold text-denim-900 ml-1">Landmark</label>
-                                                    <input required type="text" id="landmark" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Near Metro Station" />
+                                                    <input required type="text" id="landmark" name="landmark" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Near Metro Station" />
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label htmlFor="city" className="text-sm font-bold text-denim-900 ml-1">City & State</label>
-                                                    <input required type="text" id="city" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Mumbai, Maharashtra" />
+                                                    <input required type="text" id="city" name="city" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. Mumbai, Maharashtra" />
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label htmlFor="pincode" className="text-sm font-bold text-denim-900 ml-1">PIN Code</label>
-                                                    <input required type="text" id="pincode" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. 400001" />
+                                                    <input required type="text" id="pincode" name="pincode" className="w-full bg-sand-100 text-denim-900 placeholder:text-denim-900/40 rounded-xl px-4 py-3 skeuo-inset border-none focus:ring-2 focus:ring-leather-500/50 outline-none transition-all font-body font-medium" placeholder="E.g. 400001" />
                                                 </div>
                                             </div>
                                         </div>
