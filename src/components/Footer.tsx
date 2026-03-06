@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Recycle, Instagram, Mail, Phone, Send } from 'lucide-react';
+import { Instagram, Mail, Phone, Send } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -20,10 +21,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
           <div className="lg:col-span-4 md:col-span-2">
-            <div className="flex items-center font-sans font-bold text-3xl tracking-tight text-sand-50 mb-6 drop-shadow-md">
-              DENIM<span className="text-leather-500">'</span>O
-              <Recycle className="w-8 h-8 ml-2 text-leather-500 drop-shadow-sm" />
-            </div>
+            <a href="#" className="inline-block mb-6">
+              <BrandLogo
+                className="h-28 md:h-32 brightness-0 invert"
+                textClassName="text-6xl text-sand-50"
+                iconClassName="w-14 h-14 text-leather-500"
+              />
+            </a>
             <p className="font-body text-sand-200 max-w-sm leading-relaxed mb-8 font-medium drop-shadow-sm">
               Upcycled Denim Bags. Thoughtfully made from used denim. Fashion-first. Sustainability-led.
             </p>
@@ -39,17 +43,17 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
+
           <div className="lg:col-span-2">
             <h4 className="font-sans font-bold text-lg mb-6 uppercase tracking-wider text-sand-300 drop-shadow-sm">Shop</h4>
             <ul className="space-y-4 font-body text-sand-200 font-medium">
-              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Revival Pouch</a></li>
-              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Denim'O Tote</a></li>
-              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Classic Denim Tote</a></li>
-              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Conference Kits</a></li>
+              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Revive Pouch</a></li>
+              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Nova Tote</a></li>
+              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Orbit mini</a></li>
+              <li><a href="#" className="hover:text-leather-500 transition-colors drop-shadow-sm">Loop Sleeve</a></li>
             </ul>
           </div>
-          
+
           <div className="lg:col-span-2">
             <h4 className="font-sans font-bold text-lg mb-6 uppercase tracking-wider text-sand-300 drop-shadow-sm">Company</h4>
             <ul className="space-y-4 font-body text-sand-200 font-medium">
@@ -89,7 +93,7 @@ export default function Footer() {
             )}
           </div>
         </div>
-        
+
         <div className="pt-8 border-t border-dashed border-leather-500/30 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-sand-300 text-sm font-medium drop-shadow-sm">
             &copy; {new Date().getFullYear()} Denim'O. All rights reserved.

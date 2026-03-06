@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     name: "Sarah Jenkins",
     role: "Eco-Conscious Shopper",
-    content: "I absolutely love my Denim'O Tote! It's incredibly durable and knowing it's made from upcycled materials makes it even better. I get compliments on it all the time.",
+    content: "I absolutely love my Nova Tote! It's incredibly durable and knowing it's made from upcycled materials makes it even better. I get compliments on it all the time.",
     rating: 5,
     image: "https://picsum.photos/seed/sarah/150/150"
   },
@@ -22,7 +22,7 @@ const testimonials = [
     id: 3,
     name: "Priya Sharma",
     role: "Everyday User",
-    content: "The Revival Pouch is my go-to for keeping my essentials organized. The craftsmanship is top-notch, and the denim texture feels so unique. It's a small change that feels good.",
+    content: "The Revive Pouch is my go-to for keeping my essentials organized. The craftsmanship is top-notch, and the denim texture feels so unique. It's a small change that feels good.",
     rating: 4,
     image: "https://picsum.photos/seed/priya/150/150"
   }
@@ -68,25 +68,25 @@ export default function Testimonials() {
               <div className="absolute -top-6 right-8 w-12 h-12 skeuo-inset rounded-full flex items-center justify-center text-leather-500 bg-sand-50">
                 <Quote className="w-5 h-5 fill-current" />
               </div>
-              
+
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className={`w-5 h-5 ${i < testimonial.rating ? 'text-leather-500 fill-leather-500' : 'text-sand-300'}`} 
+                  <Star
+                    key={i}
+                    className={`w-5 h-5 ${i < testimonial.rating ? 'text-leather-500 fill-leather-500' : 'text-sand-300'}`}
                   />
                 ))}
               </div>
-              
+
               <p className="text-lg text-denim-800/90 font-body font-medium leading-relaxed mb-8 flex-grow italic">
                 "{testimonial.content}"
               </p>
-              
+
               <div className="flex items-center gap-4 mt-auto pt-6 border-t border-dashed border-leather-500/30">
                 <div className="w-14 h-14 rounded-full overflow-hidden skeuo-inset shrink-0">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name} 
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
                     className="w-full h-full object-cover mix-blend-multiply opacity-90"
                     referrerPolicy="no-referrer"
                   />

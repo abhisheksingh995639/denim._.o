@@ -1,7 +1,8 @@
-import { ShoppingBag, Menu, Recycle, X } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar() {
   const { items, setIsCartOpen } = useCart();
@@ -14,12 +15,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50 bg-texture-sand">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
-            <div className="flex items-center font-sans font-bold text-2xl tracking-tight text-denim-900 drop-shadow-sm">
-              DENIM<span className="text-denim-600">'</span>O
-              <Recycle className="w-6 h-6 ml-1 text-denim-600 drop-shadow-sm" />
-            </div>
+            <a href="#" className="flex items-center">
+              <BrandLogo
+                className="h-24 md:h-28"
+                textClassName="text-4xl text-denim-900"
+                iconClassName="w-12 h-12 text-denim-600"
+              />
+            </a>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8 font-body font-bold text-denim-800">
             <a href="#shop" className="hover:text-denim-600 transition-colors drop-shadow-sm">Shop</a>
             <a href="#impact" className="hover:text-denim-600 transition-colors drop-shadow-sm">Impact</a>
@@ -28,7 +32,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button 
+            <button
               onClick={() => setIsCartOpen(true)}
               className="p-2 skeuo-btn-sand rounded-full relative"
             >
@@ -39,7 +43,7 @@ export default function Navbar() {
                 </span>
               )}
             </button>
-            <button 
+            <button
               className="md:hidden p-2 skeuo-btn-sand rounded-full relative z-50"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
@@ -53,7 +57,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

@@ -4,11 +4,11 @@ import { useCart } from '../context/CartContext';
 
 const FloatingShape = ({ delay, duration, className, children }: { delay: number, duration: number, className: string, children: React.ReactNode }) => (
   <motion.div
-    animate={{ 
+    animate={{
       y: [0, -30, 0],
       rotate: [0, 10, -10, 0],
     }}
-    transition={{ 
+    transition={{
       duration: duration,
       repeat: Infinity,
       ease: "easeInOut",
@@ -40,13 +40,13 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -55,19 +55,19 @@ export default function Hero() {
               <Droplets className="w-4 h-4 text-denim-600 drop-shadow-sm" />
               <span className="drop-shadow-sm">Saved 3781+ litres of water</span>
             </motion.div>
-            
+
             <h1 className="text-5xl md:text-7xl font-sans font-bold text-denim-900 leading-[1.1] mb-6 tracking-tight drop-shadow-sm">
-              Not all bags are new. <br/>
+              Not all bags are new. <br />
               <span className="text-denim-600 italic relative inline-block drop-shadow-md">
                 Some are reimagined.
                 <Sparkles className="absolute -top-6 -right-8 w-8 h-8 text-leather-500 animate-pulse drop-shadow-md" />
               </span>
             </h1>
-            
+
             <p className="text-lg md:text-2xl text-denim-800/90 font-body mb-8 md:mb-10 leading-relaxed max-w-lg drop-shadow-sm font-medium">
               Woven from waste. Stitched with soul. Fashion that speaks softly — but with purpose.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#shop" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 skeuo-btn-denim text-sand-50 rounded-full font-bold text-lg overflow-hidden">
                 <span className="relative z-10 flex items-center gap-2">
@@ -81,64 +81,64 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative mt-8 lg:mt-0"
           >
             {/* Continuous floating animation for the image container */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               style={{ willChange: 'transform' }}
               className="aspect-square rounded-[3rem] overflow-hidden relative skeuo-card p-3"
             >
               <div className="w-full h-full rounded-[2.5rem] overflow-hidden skeuo-inset relative">
-                <motion.img 
+                <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
-                  src="https://picsum.photos/seed/denimtexture/800/800" 
-                  alt="Upcycled Denim Bag" 
+                  src="/images/pro (8).png"
+                  alt="Upcycled Denim Bag"
                   className="w-full h-full object-cover mix-blend-multiply opacity-90"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-denim-900/30 to-transparent pointer-events-none"></div>
               </div>
             </motion.div>
-            
+
             {/* Floating badge */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20, rotate: -10 }}
               animate={{ opacity: 1, y: 0, rotate: -5 }}
               whileHover={{ scale: 1.05, rotate: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
               className="absolute -bottom-6 left-2 sm:-left-6 skeuo-leather-patch skeuo-stitch p-4 sm:p-6 rounded-2xl max-w-[16rem] sm:max-w-xs z-20 cursor-pointer group"
               onClick={() => addToCart({
-                id: 'revival',
-                name: 'Revival Pouch',
+                id: 'revive-pouch',
+                name: 'Revive Pouch',
                 price: '₹99',
-                image: 'https://picsum.photos/seed/pouch/800/1000'
+                image: '/images/product (5).png'
               })}
             >
               <p className="font-sans font-bold text-sand-50 text-lg sm:text-xl mb-1 flex items-center justify-between">
-                Revival Pouch
+                Revive Pouch
                 <ShoppingBag className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </p>
-              <p className="font-body text-sand-100/90 text-xs sm:text-sm mb-2 sm:mb-3 font-medium">Small in size. Not in purpose. 7" everyday carry. Zipped. Flexible. Easy to hold.</p>
+              <p className="font-body text-sand-100/90 text-xs sm:text-sm mb-2 sm:mb-3 font-medium">A compact utility pouch built for organization on the go. Designed to hold essentials with ease, it combines structured stitching with soft denim character for practical, everyday carry.</p>
               <p className="font-sans font-bold text-sand-50 text-base sm:text-lg">₹99</p>
             </motion.div>
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scrolling Marquee */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-texture-denim py-4 border-y-4 border-denim-900 shadow-[inset_0_4px_10px_rgba(0,0,0,0.3)]">
         <div className="absolute inset-x-0 top-0 h-1 border-t border-dashed border-leather-500 opacity-50"></div>
         <div className="absolute inset-x-0 bottom-0 h-1 border-b border-dashed border-leather-500 opacity-50"></div>
-        <motion.div 
-          animate={{ x: [0, -1035] }} 
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }} 
+        <motion.div
+          animate={{ x: [0, -1035] }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           style={{ willChange: 'transform' }}
           className="flex whitespace-nowrap text-sand-50 font-sans font-bold text-lg tracking-widest uppercase items-center drop-shadow-md"
         >
