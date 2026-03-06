@@ -64,13 +64,39 @@ export default function ImpactTracker() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <motion.path
                     initial={{ pathLength: 0, opacity: 0 }}
                     whileInView={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 2, ease: "easeInOut", delay: 0.2 }}
-                    d="M4 14a8 8 0 0 1-.74-3.2 8 8 0 0 1 2-5.15l2.51 2.51a5 5 0 0 0-1.22 2.59A5 5 0 0 0 7 14h-3zm16-4a8 8 0 0 1-.74 3.2 8 8 0 0 1-2 5.15l-2.51-2.51a5 5 0 0 0 1.22-2.59A5 5 0 0 0 17 10h3zm-8 10a8 8 0 0 1-5.15-2 8 8 0 0 1-2.59-5.15l2.51-2.51a5 5 0 0 0 2.59 1.22A5 5 0 0 0 12 17v3zm0-16a8 8 0 0 1 5.15 2 8 8 0 0 1 2.59 5.15l-2.51 2.51a5 5 0 0 0-2.59-1.22A5 5 0 0 0 12 7V4z"
+                    transition={{ duration: 1.5, ease: "easeInOut", delay: 0 }}
+                    d="M7 15.32l-3.48-6.04A2 2 0 0 1 4 8a2 2 0 0 1 2-2h6.8"
+                  />
+                  <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
+                    d="M17.3 14h-6.6a2 2 0 0 1-1.73-1L5.5 6.08"
+                  />
+                  <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeInOut", delay: 0.4 }}
+                    d="m14.5 18 3.5-6.05a2 2 0 0 0 0-2L14.5 3.9"
+                  />
+                  <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeInOut", delay: 0.6 }}
+                    d="m11 11.5 3.5 6.05a2 2 0 0 0 1.73 1H23"
+                  />
+                  <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
+                    d="M8 22h6.8a2 2 0 0 0 1.73-1L20 15"
                   />
                 </motion.svg>
 

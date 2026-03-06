@@ -11,6 +11,7 @@ const products = [
     description: 'A compact utility pouch built for organization on the go. Designed to hold essentials with ease, it combines structured stitching with soft denim character for practical, everyday carry.',
     price: '₹99',
     image: '/images/pro (11).png',
+    images: ['/images/pro (11).png', '/images/pro (3).png', '/images/pro (10).png'],
     tag: 'Best Seller'
   },
   {
@@ -19,6 +20,7 @@ const products = [
     description: 'A structured everyday tote crafted from upcycled denim. Designed for versatility, it balances durability with a refined silhouette, making it ideal for work, travel, and daily essentials. Thoughtfully made, effortlessly functional.',
     price: '₹499',
     image: '/images/pro (16).png',
+    images: ['/images/pro (16).png', '/images/pro (17).png', '/images/pro (18).png'],
     tag: 'New Arrival'
   },
   {
@@ -26,14 +28,16 @@ const products = [
     name: 'Loop Sleeve',
     description: 'A sleek protective sleeve tailored for laptops and documents. Minimal in form yet durable in construction, it delivers everyday utility with a clean, modern edge. With a refined silhouette, making it ideal for work, travel, and daily essentials. Thoughtfully made, effortlessly functional.',
     price: '₹299',
-    image: '/images/pro (15).png'
+    image: '/images/pro (15).png',
+    images: ['/images/pro (15).png', '/images/pro (13).png', '/images/pro (14).png']
   },
   {
     id: 'orbit-mini',
     name: 'Orbit mini',
     description: 'A compact pencil and brush pouch designed for practical storage. Durable, lightweight, and easy to carry, it keeps everyday essentials neatly organized.',
     price: '₹399',
-    image: '/images/pro (22).png'
+    image: '/images/pro (22).png',
+    images: ['/images/pro (22).png', '/images/pro (20).png', '/images/pro (23).png']
   }
 ];
 
@@ -74,20 +78,20 @@ export default function ProductGrid() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-20">
           {products.map((product, index) => {
             const isEven = index % 2 === 0;
             const cardY = useTransform(
               scrollYProgress,
               [0, 1],
-              isEven ? [50, -100] : [150, -200]
+              isEven ? [25, -50] : [75, -100]
             );
 
             return (
               <motion.div
                 key={product.id}
                 style={{ y: isMobile ? 0 : cardY, willChange: 'transform' }}
-                className={`group relative flex flex-col cursor-pointer ${isEven ? 'md:mt-0' : 'md:mt-32'}`}
+                className={`group relative flex flex-col cursor-pointer ${isEven ? 'md:mt-0' : 'md:mt-20'}`}
                 onClick={() => {
                   setSelectedProduct(product);
                   setIsModalOpen(true);

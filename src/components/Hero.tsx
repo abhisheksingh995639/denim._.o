@@ -125,7 +125,7 @@ export default function Hero() {
                 Revive Pouch
                 <ShoppingBag className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </p>
-              <p className="font-body text-sand-100/90 text-xs sm:text-sm mb-2 sm:mb-3 font-medium">A compact utility pouch built for organization on the go. Designed to hold essentials with ease, it combines structured stitching with soft denim character for practical, everyday carry.</p>
+              <p className="font-body text-sand-100/90 text-xs sm:text-sm mb-2 sm:mb-3 font-medium">A compact utility pouch built for organization on the go. Designed to hold essentials with ease.</p>
               <p className="font-sans font-bold text-sand-50 text-base sm:text-lg">₹99</p>
             </motion.div>
           </motion.div>
