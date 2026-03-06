@@ -8,9 +8,9 @@ interface BrandLogoProps {
 }
 
 export default function BrandLogo({
-  className = "h-24 md:h-28",
+  className = "h-28 md:h-32",
   textClassName = "text-5xl text-denim-900",
-  iconClassName = "w-12 h-12 text-denim-600"
+  iconClassName = "w-14 h-14 text-denim-600"
 }: BrandLogoProps) {
   const [imageError, setImageError] = useState(false);
 
