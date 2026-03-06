@@ -52,8 +52,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-denim-900/80 z-[60] transition-opacity"
-            style={{ willChange: 'opacity' }}
+            className="fixed inset-0 bg-denim-900/60 backdrop-blur-sm z-[60]"
           />
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none">
             <motion.div
@@ -61,7 +60,6 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ willChange: 'transform, opacity' }}
               className="w-full max-h-[90vh] max-w-4xl bg-sand-50 rounded-[2.5rem] shadow-2xl overflow-y-auto pointer-events-auto relative flex flex-col md:flex-row skeuo-card p-2"
             >
               <button

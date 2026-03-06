@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Droplets, Sparkles, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
@@ -28,12 +27,12 @@ export default function Hero({ onOpenOurStory }: { onOpenOurStory: () => void })
   return (
     <section className="relative overflow-hidden bg-texture-sand pt-16 pb-32 md:pt-24 md:pb-40">
       {/* Animated Background Shapes */}
-      <FloatingShape delay={0} duration={8} className="top-20 left-10 text-denim-200/40 -z-10">
+      <FloatingShape delay={0} duration={8} className="top-20 left-10 text-denim-200/40 -z-10 drop-shadow-lg">
         <svg width="200" height="200" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M45.7,145.1C27.2,126.6,18.1,99.9,25.4,75.4C32.7,50.9,56.4,28.6,81.8,20.8C107.2,13,134.4,19.7,152.9,38.2C171.4,56.7,180.5,83.4,173.2,107.9C165.9,132.4,142.2,154.7,116.8,162.5C91.4,170.3,64.2,163.6,45.7,145.1Z" />
         </svg>
       </FloatingShape>
-      <FloatingShape delay={2} duration={10} className="bottom-40 right-10 text-sand-300/50 -z-10">
+      <FloatingShape delay={2} duration={10} className="bottom-40 right-10 text-sand-300/50 -z-10 drop-shadow-lg">
         <svg width="300" height="300" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M154.1,45.9C172.6,64.4,181.7,91.1,174.4,115.6C167.1,140.1,143.4,162.4,118,170.2C92.6,178,65.4,171.3,46.9,152.8C28.4,134.3,19.3,107.6,26.6,83.1C33.9,58.6,57.6,36.3,83,28.5C108.4,20.7,135.6,27.4,154.1,45.9Z" />
         </svg>
@@ -140,8 +139,13 @@ export default function Hero({ onOpenOurStory }: { onOpenOurStory: () => void })
       <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-texture-denim py-4 border-y-4 border-denim-900 shadow-[inset_0_4px_10px_rgba(0,0,0,0.3)]">
         <div className="absolute inset-x-0 top-0 h-1 border-t border-dashed border-leather-500 opacity-50"></div>
         <div className="absolute inset-x-0 bottom-0 h-1 border-b border-dashed border-leather-500 opacity-50"></div>
-        <div className="flex w-max whitespace-nowrap text-sand-50 font-sans font-bold text-lg tracking-widest uppercase items-center drop-shadow-md animate-marquee will-change-transform">
-          {[...Array(8)].map((_, i) => (
+        <motion.div
+          animate={{ x: [0, -1035] }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          style={{ willChange: 'transform' }}
+          className="flex whitespace-nowrap text-sand-50 font-sans font-bold text-lg tracking-widest uppercase items-center drop-shadow-md"
+        >
+          {[...Array(4)].map((_, i) => (
             <span key={i} className="flex items-center">
               <span className="mx-6">REDUCE</span>
               <span className="w-3 h-3 rounded-full skeuo-inset bg-denim-400 mx-2"></span>
@@ -153,7 +157,7 @@ export default function Hero({ onOpenOurStory }: { onOpenOurStory: () => void })
               <span className="w-3 h-3 rounded-full skeuo-inset bg-denim-400 mx-2"></span>
             </span>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

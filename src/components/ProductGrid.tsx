@@ -1,90 +1,8 @@
-import { motion, useScroll, useTransform, MotionValue } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { ShoppingBag } from 'lucide-react';
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import QuickViewModal from './QuickViewModal';
-
-const ProductCard = ({
-  product,
-  index,
-  scrollYProgress,
-  isMobile,
-  onSelect,
-  onAddToCart
-}: {
-  product: typeof products[0];
-  index: number;
-  scrollYProgress: MotionValue<number>;
-  isMobile: boolean;
-  onSelect: () => void;
-  onAddToCart: () => void;
-  key?: React.Key;
-}) => {
-  const isEven = index % 2 === 0;
-
-  // Custom transform values depending on if it's the left or right column
-  const cardY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isEven ? [25, -50] : [75, -100]
-  );
-
-  return (
-    <motion.div
-      style={{ y: isMobile ? 0 : cardY, willChange: 'transform' }}
-      className={`group relative flex flex-col cursor-pointer ${isEven ? 'md:mt-0' : 'md:mt-20'}`}
-      onClick={onSelect}
-    >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] skeuo-card p-3 mb-6 md:mb-8">
-        <div className="w-full h-full rounded-[2rem] overflow-hidden skeuo-inset relative">
-          <motion.img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover mix-blend-multiply opacity-90"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-            referrerPolicy="no-referrer"
-          />
-
-          <div className="absolute inset-0 bg-denim-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-          {product.tag && (
-            <span className="absolute top-4 left-4 md:top-6 md:left-6 skeuo-leather-patch skeuo-stitch text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-lg uppercase tracking-widest">
-              {product.tag}
-            </span>
-          )}
-
-          <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 md:translate-y-8 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onAddToCart();
-              }}
-              className="flex items-center justify-center p-3 md:p-4 skeuo-btn-denim text-sand-50 rounded-xl md:rounded-2xl font-bold transition-all duration-300 shadow-lg hover:scale-105 active:scale-95"
-              aria-label="Add to Bag"
-            >
-              <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col sm:flex-row justify-between items-start mb-4 px-2 md:px-4 gap-4">
-        <div>
-          <h3 className="font-sans font-bold text-2xl md:text-3xl text-denim-900 mb-2 md:mb-3 group-hover:text-denim-600 transition-colors duration-300 drop-shadow-sm">
-            {product.name}
-          </h3>
-          <p className="font-body text-base md:text-lg text-denim-800/80 max-w-sm leading-relaxed font-medium">
-            {product.description}
-          </p>
-        </div>
-        <span className="font-sans font-bold text-xl md:text-2xl text-denim-900 skeuo-inset px-4 py-2 rounded-xl border border-sand-300 shadow-sm whitespace-nowrap">
-          {product.price}
-        </span>
-      </div>
-    </motion.div>
-  );
-};
 
 const products = [
   {
@@ -161,25 +79,79 @@ export default function ProductGrid() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-20">
-          {products.map((product, index) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              index={index}
-              scrollYProgress={scrollYProgress}
-              isMobile={isMobile}
-              onSelect={() => {
-                setSelectedProduct(product);
-                setIsModalOpen(true);
-              }}
-              onAddToCart={() => addToCart({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image
-              })}
-            />
-          ))}
+          {products.map((product, index) => {
+            const isEven = index % 2 === 0;
+            const cardY = useTransform(
+              scrollYProgress,
+              [0, 1],
+              isEven ? [25, -50] : [75, -100]
+            );
+
+            return (
+              <motion.div
+                key={product.id}
+                style={{ y: isMobile ? 0 : cardY, willChange: 'transform' }}
+                className={`group relative flex flex-col cursor-pointer ${isEven ? 'md:mt-0' : 'md:mt-20'}`}
+                onClick={() => {
+                  setSelectedProduct(product);
+                  setIsModalOpen(true);
+                }}
+              >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] skeuo-card p-3 mb-6 md:mb-8">
+                  <div className="w-full h-full rounded-[2rem] overflow-hidden skeuo-inset relative">
+                    <motion.img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover mix-blend-multiply opacity-90"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+                      referrerPolicy="no-referrer"
+                    />
+
+                    <div className="absolute inset-0 bg-denim-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    {product.tag && (
+                      <span className="absolute top-4 left-4 md:top-6 md:left-6 skeuo-leather-patch skeuo-stitch text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-lg uppercase tracking-widest">
+                        {product.tag}
+                      </span>
+                    )}
+
+                    <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 md:translate-y-8 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart({
+                            id: product.id,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image
+                          });
+                        }}
+                        className="flex items-center justify-center p-3 md:p-4 skeuo-btn-denim text-sand-50 rounded-xl md:rounded-2xl font-bold transition-all duration-300 shadow-lg hover:scale-105 active:scale-95"
+                        aria-label="Add to Bag"
+                      >
+                        <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row justify-between items-start mb-4 px-2 md:px-4 gap-4">
+                  <div>
+                    <h3 className="font-sans font-bold text-2xl md:text-3xl text-denim-900 mb-2 md:mb-3 group-hover:text-denim-600 transition-colors duration-300 drop-shadow-sm">
+                      {product.name}
+                    </h3>
+                    <p className="font-body text-base md:text-lg text-denim-800/80 max-w-sm leading-relaxed font-medium">
+                      {product.description}
+                    </p>
+                  </div>
+                  <span className="font-sans font-bold text-xl md:text-2xl text-denim-900 skeuo-inset px-4 py-2 rounded-xl border border-sand-300 shadow-sm whitespace-nowrap">
+                    {product.price}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
