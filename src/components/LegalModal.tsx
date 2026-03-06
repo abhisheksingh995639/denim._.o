@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Shield, FileText } from 'lucide-react';
+import { X, Shield, FileText, BookOpen } from 'lucide-react';
 
-type LegalType = 'privacy' | 'terms' | null;
+type LegalType = 'privacy' | 'terms' | 'our-story' | null;
 
 interface LegalModalProps {
     type: LegalType;
@@ -63,6 +63,31 @@ export default function LegalModal({ type, isOpen, onClose }: LegalModalProps) {
                     <p className="mt-8 text-sm italic">
                         Last updated: {new Date().toLocaleDateString()}
                     </p>
+                </div>
+            )
+        },
+        'our-story': {
+            title: 'Our Story',
+            icon: <BookOpen className="w-6 h-6 text-leather-500" />,
+            body: (
+                <div className="space-y-4 text-denim-800/80 font-body">
+                    <h3 className="text-2xl font-sans font-bold text-denim-900 mb-4">The Denim'O Journey</h3>
+                    <p className="leading-relaxed">
+                        What started as a simple observation of overflowing wardrobes has evolved into a dedicated mission to give textiles a second, meaningful life. At Denim'O, we see the potential in what others consider waste.
+                    </p>
+                    <p className="leading-relaxed">
+                        Denim is one of the most durable, versatile fabrics ever created. Yet, countless pairs of jeans end up in landfills every year. We set out to change that narrative by transforming post-consumer denim into high-quality, functional accessories.
+                    </p>
+                    <h4 className="font-bold text-denim-900 mt-6 text-lg">Our Philosophy</h4>
+                    <p className="leading-relaxed">
+                        Every bag we craft carries a unique history. The natural fades, the distinct distress marks, and the character of the original fabric means no two Denim'O bags are ever exactly alike. We celebrate these imperfections as marks of authenticity.
+                    </p>
+                    <p className="leading-relaxed">
+                        By choosing Denim'O, you're not just buying a bag—you're participating in a circular economy, reducing water waste, and carrying a piece of sustainable fashion that makes a tangible impact.
+                    </p>
+                    <div className="mt-8 p-4 skeuo-inset rounded-xl bg-sand-100 flex items-center justify-center">
+                        <p className="font-bold text-denim-900 text-center italic">"Fashion-first. Sustainability-led."</p>
+                    </div>
                 </div>
             )
         }

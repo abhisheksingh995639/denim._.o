@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Instagram, Mail, Phone, Send } from 'lucide-react';
 import BrandLogo from './BrandLogo';
-import LegalModal from './LegalModal';
 
-export default function Footer() {
+export default function Footer({ onOpenLegalModal }: { onOpenLegalModal: (type: 'privacy' | 'terms' | 'our-story') => void }) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
-  const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | null>(null);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,7 +57,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h4 className="font-sans font-bold text-lg mb-6 uppercase tracking-wider text-sand-300 drop-shadow-sm">Company</h4>
             <ul className="space-y-4 font-body text-sand-200 font-medium">
-              <li><a href="#story" className="hover:text-leather-500 transition-colors drop-shadow-sm">Our Story</a></li>
+              <li><button onClick={(e) => { e.preventDefault(); onOpenLegalModal('our-story'); }} className="hover:text-leather-500 transition-colors drop-shadow-sm">Our Story</button></li>
               <li><a href="#impact" className="hover:text-leather-500 transition-colors drop-shadow-sm">Impact Tracker</a></li>
               <li><a href="#b2b" className="hover:text-leather-500 transition-colors drop-shadow-sm">Institutional Orders</a></li>
               <li><a href="#donate" className="hover:text-leather-500 transition-colors drop-shadow-sm">Donate Denim</a></li>
@@ -101,17 +99,11 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Denim'O. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm font-body text-sand-300 font-medium">
-            <button onClick={(e) => { e.preventDefault(); setActiveLegalModal('privacy'); }} className="hover:text-sand-50 transition-colors drop-shadow-sm">Privacy Policy</button>
-            <button onClick={(e) => { e.preventDefault(); setActiveLegalModal('terms'); }} className="hover:text-sand-50 transition-colors drop-shadow-sm">Terms of Service</button>
+            <button onClick={(e) => { e.preventDefault(); onOpenLegalModal('privacy'); }} className="hover:text-sand-50 transition-colors drop-shadow-sm">Privacy Policy</button>
+            <button onClick={(e) => { e.preventDefault(); onOpenLegalModal('terms'); }} className="hover:text-sand-50 transition-colors drop-shadow-sm">Terms of Service</button>
           </div>
         </div>
       </div>
-
-      <LegalModal
-        type={activeLegalModal}
-        isOpen={activeLegalModal !== null}
-        onClose={() => setActiveLegalModal(null)}
-      />
     </footer>
   );
 }

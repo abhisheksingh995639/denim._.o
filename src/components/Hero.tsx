@@ -21,7 +21,7 @@ const FloatingShape = ({ delay, duration, className, children }: { delay: number
   </motion.div>
 );
 
-export default function Hero() {
+export default function Hero({ onOpenOurStory }: { onOpenOurStory: () => void }) {
   const { addToCart } = useCart();
 
   return (
@@ -75,9 +75,12 @@ export default function Hero() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
-              <a href="#story" className="inline-flex items-center justify-center gap-2 px-8 py-4 skeuo-btn-sand text-denim-900 rounded-full font-bold text-lg">
+              <button
+                onClick={(e) => { e.preventDefault(); onOpenOurStory(); }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 skeuo-btn-sand text-denim-900 rounded-full font-bold text-lg"
+              >
                 Our Story
-              </a>
+              </button>
             </div>
           </motion.div>
 
