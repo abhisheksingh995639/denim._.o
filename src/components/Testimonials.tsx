@@ -4,27 +4,27 @@ import { Star, Quote } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Jenkins",
+    name: "Sneha Patel",
     role: "Eco-Conscious Shopper",
     content: "I absolutely love my Nova Tote! It's incredibly durable and knowing it's made from upcycled materials makes it even better. I get compliments on it all the time.",
     rating: 5,
-    image: "https://picsum.photos/seed/sarah/150/150"
+    image: "https://picsum.photos/seed/sneha/150/150"
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Rahul Verma",
     role: "Event Coordinator",
     content: "We ordered 100 conference kits for our annual summit. The quality was outstanding, and our attendees appreciated the sustainable approach. Highly recommended for corporate events.",
     rating: 5,
-    image: "https://picsum.photos/seed/michael/150/150"
+    image: "https://picsum.photos/seed/rahul/150/150"
   },
   {
     id: 3,
-    name: "Priya Sharma",
+    name: "Aditi Sharma",
     role: "Everyday User",
     content: "The Revive Pouch is my go-to for keeping my essentials organized. The craftsmanship is top-notch, and the denim texture feels so unique. It's a small change that feels good.",
     rating: 4,
-    image: "https://picsum.photos/seed/priya/150/150"
+    image: "https://picsum.photos/seed/aditi/150/150"
   }
 ];
 
@@ -58,10 +58,10 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4 }}
               style={{ willChange: 'transform, opacity' }}
               className="skeuo-card p-8 md:p-10 rounded-[2.5rem] relative flex flex-col"
             >

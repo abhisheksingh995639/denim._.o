@@ -5,7 +5,7 @@ import { getMailtoLink } from '../utils/mail';
 export default function InstitutionalOrders() {
   const b2bSubject = "B2B Quote Request";
   const b2bBody = `Organization/Company Name: \r\nContact Person: \r\nMobile No: \r\nEmail: \r\nProduct Category (e.g., Conference Kits, Event Bags): \r\nEstimated Quantity: \r\nExpected Delivery Date: \r\nDelivery Location (City/State): \r\n\r\nAdditional Requirements/Details: `;
-  const b2bMailto = getMailtoLink('abhisheksingh9956390506@gmail.com', b2bSubject, b2bBody);
+  const b2bMailto = getMailtoLink('Hellodenimo@gmail.com', b2bSubject, b2bBody);
 
   return (
     <section id="b2b" className="py-32 bg-texture-sand relative overflow-hidden">

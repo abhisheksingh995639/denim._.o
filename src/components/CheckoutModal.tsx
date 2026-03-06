@@ -5,9 +5,10 @@ import { getMailtoLink } from '../utils/mail';
 import React, { useState } from 'react';
 
 export default function CheckoutModal() {
-    const { isCheckoutOpen, setIsCheckoutOpen, clearCart, cartTotal, items } = useCart();
+    const { isCheckoutOpen, setIsCheckoutOpen, setIsCartOpen, cartTotal, items } = useCart();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [orderPlaced, setOrderPlaced] = useState(false);
+    const [showPermissionScreen, setShowPermissionScreen] = useState(false);
+    const [pendingMailto, setPendingMailto] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -42,35 +43,17 @@ Looking forward to receiving my order!
 Thank you,
 ${data.name}`;
 
-        const mailtoLink = getMailtoLink('abhisheksingh9956390506@gmail.com', `New Order from ${data.name}`, emailBody);
+        const mailtoLink = getMailtoLink('Hellodenimo@gmail.com', `New Order from ${data.name}`, emailBody);
 
-        // Open Gmail compose link
-        if (mailtoLink.startsWith('intent:') || mailtoLink.startsWith('mailto:')) {
-            window.location.href = mailtoLink;
-        } else {
-            window.open(mailtoLink, '_blank');
-        }
-
-        // Simulate success
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setOrderPlaced(true);
-            clearCart();
-
-            // Auto close after success
-            setTimeout(() => {
-                // Only auto close if they haven't manually closed it already
-                setIsCheckoutOpen(false);
-                // Reset state after close animation finishes
-                setTimeout(() => setOrderPlaced(false), 500);
-            }, 8000);
-        }, 1500);
+        setPendingMailto(mailtoLink);
+        setIsSubmitting(false);
+        setShowPermissionScreen(true);
     };
 
     const handleClose = () => {
         if (!isSubmitting) {
             setIsCheckoutOpen(false);
-            setTimeout(() => setOrderPlaced(false), 500);
+            setTimeout(() => setShowPermissionScreen(false), 500);
         }
     };
 
@@ -111,19 +94,47 @@ ${data.name}`;
                             </div>
 
                             <div className="overflow-y-auto w-full">
-                                {orderPlaced ? (
+                                {showPermissionScreen ? (
                                     <motion.div
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         className="flex flex-col items-center justify-center p-12 text-center h-[50vh]"
                                     >
-                                        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 shadow-inner">
-                                            <CheckCircle className="w-10 h-10" />
+                                        <div className="w-20 h-20 bg-blue-100/50 rounded-full flex items-center justify-center mb-6 text-denim-600 shadow-inner">
+                                            <Truck className="w-10 h-10" />
                                         </div>
-                                        <h3 className="text-3xl font-bold font-sans text-denim-900 mb-4">Order Confirmed!</h3>
-                                        <p className="text-denim-800/80 font-body text-lg leading-relaxed max-w-md mx-auto">
-                                            We've received your details! Our team will review the stock and send a payment link/confirmation to your email within 24 hours.
+                                        <h3 className="text-3xl font-bold font-sans text-denim-900 mb-4">Almost There!</h3>
+                                        <p className="text-denim-800/80 font-body text-lg leading-relaxed max-w-md mx-auto mb-8">
+                                            DenimO accepts orders exclusively via email. You will now be redirected to your email client to complete the order. Do you wish to proceed?
                                         </p>
+                                        <div className="flex gap-4 w-full max-w-md mx-auto">
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setShowPermissionScreen(false);
+                                                    setIsCheckoutOpen(false);
+                                                    setIsCartOpen(true);
+                                                }}
+                                                className="flex-1 py-4 skeuo-btn-sand text-denim-900 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                            >
+                                                No, Go Back
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    if (pendingMailto.startsWith('intent:') || pendingMailto.startsWith('mailto:')) {
+                                                        window.location.href = pendingMailto;
+                                                    } else {
+                                                        window.open(pendingMailto, '_blank');
+                                                    }
+                                                    setShowPermissionScreen(false);
+                                                    setIsCheckoutOpen(false);
+                                                }}
+                                                className="flex-1 py-4 skeuo-btn-denim text-sand-50 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                            >
+                                                Yes, Proceed
+                                            </button>
+                                        </div>
                                     </motion.div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-6">

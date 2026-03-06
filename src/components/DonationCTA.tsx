@@ -5,7 +5,7 @@ import { getMailtoLink } from '../utils/mail';
 export default function DonationCTA() {
   const donationSubject = "Denim Donation Inquiry";
   const donationBody = `Name: \r\nMobile No: \r\nCity: \r\nItems you wish to donate (e.g., 2 pairs of jeans, 1 denim jacket): \r\nPickup Address (If applicable): \r\n\r\nAdditional Details: `;
-  const donationMailto = getMailtoLink('abhisheksingh9956390506@gmail.com', donationSubject, donationBody);
+  const donationMailto = getMailtoLink('Hellodenimo@gmail.com', donationSubject, donationBody);
 
   return (
     <section id="donate" className="py-24 bg-texture-sand relative overflow-hidden">

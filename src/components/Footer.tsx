@@ -5,7 +5,7 @@ import BrandLogo from './BrandLogo';
 
 export default function Footer({ onOpenLegalModal }: { onOpenLegalModal: (type: 'privacy' | 'terms' | 'our-story') => void }) {
   const currentYear = new Date().getFullYear();
-  const contactMailto = getMailtoLink('abhisheksingh9956390506@gmail.com');
+  const contactMailto = getMailtoLink('Hellodenimo@gmail.com');
 
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
