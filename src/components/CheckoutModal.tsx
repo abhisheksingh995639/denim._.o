@@ -17,7 +17,7 @@ export default function CheckoutModal() {
         const data = Object.fromEntries(formData.entries());
 
         const cartText = items.map(item => `- ${item.quantity}x ${item.name} (${item.price})`).join('\n');
-        
+
         const emailBody = `Hello DenimO Team,
 
 I would like to place an order for the following items:
@@ -41,8 +41,8 @@ Looking forward to receiving my order!
 Thank you,
 ${data.name}`;
 
-        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=orders@denimo.com&su=${encodeURIComponent(`New Order from ${data.name}`)}&body=${encodeURIComponent(emailBody)}`;
-        
+        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=abhisheksingh9956390506@gmail.com&su=${encodeURIComponent(`New Order from ${data.name}`)}&body=${encodeURIComponent(emailBody)}`;
+
         // Open Gmail compose link in a new tab
         window.open(mailtoLink, '_blank');
 
