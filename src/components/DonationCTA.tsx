@@ -104,7 +104,7 @@ export default function DonationCTA() {
               </motion.div>
             </div>
 
-            <a href="#contact" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 skeuo-btn-denim text-sand-50 rounded-full font-bold text-lg overflow-hidden">
+            <a href="mailto:contact@example.com?subject=Denim%20Donation%20Inquiry&body=Name%3A%20%0D%0AMobile%20No%3A%20%0D%0ACity%3A%20%0D%0AItems%20you%20wish%20to%20donate%20(e.g.%2C%202%20pairs%20of%20jeans%2C%201%20denim%20jacket)%3A%20%0D%0APickup%20Address%20(If%20applicable)%3A%20%0D%0A%0D%0AAdditional%20Details%3A%20" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 skeuo-btn-denim text-sand-50 rounded-full font-bold text-lg overflow-hidden">
               <span className="relative z-10 flex items-center gap-2">
                 Donate Today
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

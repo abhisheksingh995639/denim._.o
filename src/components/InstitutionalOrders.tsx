@@ -27,7 +27,7 @@ export default function InstitutionalOrders() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -42,7 +42,7 @@ export default function InstitutionalOrders() {
             <p className="text-denim-800/80 font-body font-medium">Durable, stylish, and functional bags designed for professional use.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function InstitutionalOrders() {
             <p className="text-denim-800/80 font-body font-medium">Consistent quality and timely delivery for events of any scale.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -73,7 +73,7 @@ export default function InstitutionalOrders() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -100,9 +100,9 @@ export default function InstitutionalOrders() {
                 </p>
               </div>
             </div>
-            <button className="skeuo-btn-sand text-denim-900 px-8 py-4 rounded-full font-bold text-lg">
+            <a href="mailto:contact@example.com?subject=B2B%20Quote%20Request&body=Organization%2FCompany%20Name%3A%20%0D%0AContact%20Person%3A%20%0D%0AMobile%20No%3A%20%0D%0AEmail%3A%20%0D%0AProduct%20Category%20(e.g.%2C%20Conference%20Kits%2C%20Event%20Bags)%3A%20%0D%0AEstimated%20Quantity%3A%20%0D%0AExpected%20Delivery%20Date%3A%20%0D%0ADelivery%20Location%20(City%2FState)%3A%20%0D%0A%0D%0AAdditional%20Requirements%2FDetails%3A%20" className="inline-block skeuo-btn-sand text-denim-900 px-8 py-4 rounded-full font-bold text-lg">
               Request a B2B Quote
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

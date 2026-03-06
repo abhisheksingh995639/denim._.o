@@ -3,12 +3,11 @@ import { X, Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function CartSidebar() {
-  const { items, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, cartTotal, clearCart } = useCart();
+  const { items, isCartOpen, setIsCartOpen, setIsCheckoutOpen, removeFromCart, updateQuantity, cartTotal, clearCart } = useCart();
 
   const handleCheckout = () => {
-    alert('Order placed successfully!');
-    clearCart();
     setIsCartOpen(false);
+    setIsCheckoutOpen(true);
   };
 
   return (
@@ -78,7 +77,7 @@ export default function CartSidebar() {
                         referrerPolicy="no-referrer"
                       />
                     </div>
-                    
+
                     <div className="flex-1 flex flex-col justify-between">
                       <div className="flex justify-between items-start">
                         <h3 className="font-sans font-bold text-lg text-denim-900 leading-tight">
@@ -92,12 +91,12 @@ export default function CartSidebar() {
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
-                      
+
                       <div className="flex items-center justify-between mt-2">
                         <div className="font-sans font-bold text-denim-900">
                           {item.price}
                         </div>
-                        
+
                         <div className="flex items-center gap-3 skeuo-inset px-2 py-1 rounded-lg bg-sand-50">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}

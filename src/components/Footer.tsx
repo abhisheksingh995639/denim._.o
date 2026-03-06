@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Instagram, Mail, Phone, Send } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
@@ -32,13 +32,13 @@ export default function Footer() {
               Upcycled Denim Bags. Thoughtfully made from used denim. Fashion-first. Sustainability-led.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://instagram.com/denim__o" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
+              <a href="https://www.instagram.com/denim._.o/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Instagram className="w-5 h-5 drop-shadow-sm" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
+              <a href="mailto:contact@example.com" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Mail className="w-5 h-5 drop-shadow-sm" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
+              <a href="tel:+919876543210" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Phone className="w-5 h-5 drop-shadow-sm" />
               </a>
             </div>
