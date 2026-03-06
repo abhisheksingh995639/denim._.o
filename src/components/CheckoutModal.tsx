@@ -83,17 +83,18 @@ ${data.name}`;
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={handleClose}
-                        className="fixed inset-0 bg-denim-900/60 backdrop-blur-sm z-[70]"
+                        className="fixed inset-0 bg-denim-900/80 z-[70]"
                     />
                     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                            transition={{ type: 'tween', ease: 'easeOut', duration: 0.25 }}
+                            style={{ willChange: 'transform, opacity' }}
                             className="w-full max-h-[90vh] max-w-2xl bg-texture-sand rounded-[2.5rem] shadow-2xl overflow-hidden pointer-events-auto relative flex flex-col skeuo-card"
                         >
-                            <div className="flex items-center justify-between p-6 border-b border-dashed border-leather-500/30 bg-sand-50/50 backdrop-blur-md sticky top-0 z-20">
+                            <div className="flex items-center justify-between p-6 border-b border-dashed border-leather-500/30 bg-sand-50/95 sticky top-0 z-20">
                                 <h2 className="font-sans font-bold text-2xl text-denim-900 flex items-center gap-3 drop-shadow-sm">
                                     <Truck className="w-6 h-6 text-leather-500" />
                                     Delivery Details

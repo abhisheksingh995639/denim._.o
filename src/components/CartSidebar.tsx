@@ -20,7 +20,7 @@ export default function CartSidebar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsCartOpen(false)}
-            className="fixed inset-0 bg-denim-900/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-denim-900/80 z-50"
           />
 
           {/* Sidebar */}
@@ -28,7 +28,8 @@ export default function CartSidebar() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            transition={{ type: 'tween', ease: 'circOut', duration: 0.3 }}
+            style={{ willChange: 'transform' }}
             className="fixed top-0 right-0 h-full w-full max-w-md bg-sand-50 shadow-2xl z-50 flex flex-col border-l-8 border-denim-900"
           >
             {/* Header */}
@@ -62,11 +63,11 @@ export default function CartSidebar() {
               ) : (
                 items.map((item) => (
                   <motion.div
-                    layout
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     key={item.id}
+                    style={{ willChange: 'transform, opacity' }}
                     className="flex gap-4 p-4 skeuo-card rounded-2xl bg-sand-100"
                   >
                     <div className="w-24 h-24 rounded-xl overflow-hidden skeuo-inset flex-shrink-0">
