@@ -6,22 +6,22 @@ export default function DonationCTA() {
     <section id="donate" className="py-32 bg-texture-sand relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="aspect-square rounded-[3rem] overflow-hidden relative skeuo-card p-4"
             >
               <div className="w-full h-full rounded-[2.5rem] overflow-hidden skeuo-inset relative">
-                <img 
-                  src="https://picsum.photos/seed/donate/800/800" 
-                  alt="Donating Denim" 
+                <img
+                  src="/images/pro (28).png"
+                  alt="Donating Denim"
                   className="w-full h-full object-cover mix-blend-multiply opacity-90"
                   referrerPolicy="no-referrer"
                 />
@@ -30,7 +30,7 @@ export default function DonationCTA() {
             </motion.div>
 
             {/* Floating Package Animation */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -20, 0], rotate: [-5, 5, -5] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -top-6 -right-2 md:-top-10 md:-right-10 skeuo-leather-patch skeuo-stitch p-4 md:p-6 rounded-2xl md:rounded-3xl z-20"
@@ -39,7 +39,7 @@ export default function DonationCTA() {
             </motion.div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -49,20 +49,20 @@ export default function DonationCTA() {
               <Heart className="w-4 h-4 text-denim-600 drop-shadow-sm" />
               <span>Join the Movement</span>
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-denim-900 mb-6 leading-tight drop-shadow-sm">
               Love Your Denim? <br />
               <span className="text-denim-600 italic drop-shadow-md">Pass It On.</span>
             </h2>
-            
+
             <p className="text-xl text-denim-800/80 font-body mb-12 leading-relaxed font-medium drop-shadow-sm">
               Your old jeans hold the potential for new stories. Donate your worn-out denim and help us create sustainable, functional accessories while reducing textile waste.
             </p>
-            
+
             <div className="space-y-10 mb-12 relative">
               {/* Animated Dashed Line connecting steps */}
               <div className="absolute left-6 top-12 bottom-12 w-0.5 border-l-2 border-dashed border-leather-500 -z-10">
-                <motion.div 
+                <motion.div
                   initial={{ height: 0 }}
                   whileInView={{ height: "100%" }}
                   viewport={{ once: true }}
@@ -71,7 +71,7 @@ export default function DonationCTA() {
                 />
               </div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -87,7 +87,7 @@ export default function DonationCTA() {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -103,7 +103,7 @@ export default function DonationCTA() {
                 </div>
               </motion.div>
             </div>
-            
+
             <a href="#contact" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 skeuo-btn-denim text-sand-50 rounded-full font-bold text-lg overflow-hidden">
               <span className="relative z-10 flex items-center gap-2">
                 Donate Today
@@ -113,7 +113,7 @@ export default function DonationCTA() {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Decorative background elements */}
       <div className="absolute bottom-0 right-0 translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-sand-300/40 rounded-full blur-3xl -z-10"></div>
     </section>

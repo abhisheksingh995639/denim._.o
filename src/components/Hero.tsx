@@ -118,7 +118,7 @@ export default function Hero() {
                 id: 'revive-pouch',
                 name: 'Revive Pouch',
                 price: '₹99',
-                image: '/images/product (5).png'
+                image: '/images/pro (11).png'
               })}
             >
               <p className="font-sans font-bold text-sand-50 text-lg sm:text-xl mb-1 flex items-center justify-between">

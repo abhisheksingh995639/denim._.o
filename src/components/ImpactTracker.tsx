@@ -8,42 +8,42 @@ export default function ImpactTracker() {
       <div className="absolute inset-x-0 bottom-0 h-1 border-b border-dashed border-leather-500 opacity-50"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 leading-tight drop-shadow-md">
-              Denim lives forever. <br/> So we give it a second life.
+              Denim lives forever. <br /> So we give it a second life.
             </h2>
             <p className="text-xl text-sand-200 font-body mb-12 leading-relaxed drop-shadow-sm font-medium">
-               On your arm, not in the landfill. Fast fashion dumps a truckload of clothes every second — that's 92 million tons of solid waste every year. We're changing that.
+              On your arm, not in the landfill. Fast fashion dumps a truckload of clothes every second — that's 92 million tons of solid waste every year. We're changing that.
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -5 }}
                 className="skeuo-card-dark p-8 rounded-3xl relative overflow-hidden group"
               >
                 {/* Animated Water Drop SVG Background */}
-                <motion.svg 
-                  className="absolute -bottom-4 -right-4 w-32 h-32 text-denim-600/20 group-hover:text-denim-600/40 transition-colors" 
-                  viewBox="0 0 24 24" 
+                <motion.svg
+                  className="absolute -bottom-4 -right-4 w-32 h-32 text-denim-600/20 group-hover:text-denim-600/40 transition-colors"
+                  viewBox="0 0 24 24"
                   fill="currentColor"
                 >
-                  <motion.path 
+                  <motion.path
                     initial={{ pathLength: 0, opacity: 0 }}
                     whileInView={{ pathLength: 1, opacity: 1 }}
                     transition={{ duration: 2, ease: "easeInOut" }}
-                    d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" 
+                    d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"
                   />
                 </motion.svg>
-                
+
                 <div className="w-16 h-16 rounded-2xl skeuo-inset-dark flex items-center justify-center mb-6 relative z-10">
                   <Droplets className="w-8 h-8 text-denim-400 drop-shadow-sm" />
                 </div>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
@@ -54,30 +54,30 @@ export default function ImpactTracker() {
                 <p className="text-sm font-body text-sand-300 uppercase tracking-wider font-bold relative z-10">Litres of Water / Pair</p>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -5 }}
                 className="skeuo-card-dark p-8 rounded-3xl relative overflow-hidden group"
               >
                 {/* Animated Recycle SVG Background */}
-                <motion.svg 
-                  className="absolute -bottom-4 -right-4 w-32 h-32 text-denim-600/20 group-hover:text-denim-600/40 transition-colors" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <motion.svg
+                  className="absolute -bottom-4 -right-4 w-32 h-32 text-denim-600/20 group-hover:text-denim-600/40 transition-colors"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
                   strokeWidth="1"
                 >
-                  <motion.path 
+                  <motion.path
                     initial={{ pathLength: 0, opacity: 0 }}
                     whileInView={{ pathLength: 1, opacity: 1 }}
                     transition={{ duration: 2, ease: "easeInOut", delay: 0.2 }}
-                    d="M4 14a8 8 0 0 1-.74-3.2 8 8 0 0 1 2-5.15l2.51 2.51a5 5 0 0 0-1.22 2.59A5 5 0 0 0 7 14h-3zm16-4a8 8 0 0 1-.74 3.2 8 8 0 0 1-2 5.15l-2.51-2.51a5 5 0 0 0 1.22-2.59A5 5 0 0 0 17 10h3zm-8 10a8 8 0 0 1-5.15-2 8 8 0 0 1-2.59-5.15l2.51-2.51a5 5 0 0 0 2.59 1.22A5 5 0 0 0 12 17v3zm0-16a8 8 0 0 1 5.15 2 8 8 0 0 1 2.59 5.15l-2.51 2.51a5 5 0 0 0-2.59-1.22A5 5 0 0 0 12 7V4z" 
+                    d="M4 14a8 8 0 0 1-.74-3.2 8 8 0 0 1 2-5.15l2.51 2.51a5 5 0 0 0-1.22 2.59A5 5 0 0 0 7 14h-3zm16-4a8 8 0 0 1-.74 3.2 8 8 0 0 1-2 5.15l-2.51-2.51a5 5 0 0 0 1.22-2.59A5 5 0 0 0 17 10h3zm-8 10a8 8 0 0 1-5.15-2 8 8 0 0 1-2.59-5.15l2.51-2.51a5 5 0 0 0 2.59 1.22A5 5 0 0 0 12 17v3zm0-16a8 8 0 0 1 5.15 2 8 8 0 0 1 2.59 5.15l-2.51 2.51a5 5 0 0 0-2.59-1.22A5 5 0 0 0 12 7V4z"
                   />
                 </motion.svg>
 
                 <div className="w-16 h-16 rounded-2xl skeuo-inset-dark flex items-center justify-center mb-6 relative z-10">
                   <Recycle className="w-8 h-8 text-denim-400 drop-shadow-sm" />
                 </div>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
@@ -90,7 +90,7 @@ export default function ImpactTracker() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -99,16 +99,16 @@ export default function ImpactTracker() {
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden relative skeuo-card-dark p-3">
               <div className="w-full h-full rounded-[2.5rem] overflow-hidden skeuo-inset-dark relative">
-                <motion.img 
+                <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.8 }}
-                  src="https://picsum.photos/seed/upcycle/800/1000" 
-                  alt="Upcycling Process" 
+                  src="/images/pro (27).png"
+                  alt="Upcycling Process"
                   className="w-full h-full object-cover opacity-80 mix-blend-luminosity"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-denim-900 via-denim-900/40 to-transparent opacity-90"></div>
-                
+
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 md:p-3 skeuo-inset-dark rounded-xl md:rounded-2xl border border-denim-800">
@@ -124,7 +124,7 @@ export default function ImpactTracker() {
             </div>
 
             {/* Spinning Circular Text Badge */}
-            <motion.div 
+            <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               style={{ willChange: 'transform' }}
@@ -143,9 +143,9 @@ export default function ImpactTracker() {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Decorative background circles */}
-      <div 
+      <div
         className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-denim-800 rounded-full blur-3xl -z-10 opacity-40"
       />
     </section>
