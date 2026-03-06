@@ -20,7 +20,8 @@ export default function CartSidebar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsCartOpen(false)}
-            className="fixed inset-0 bg-denim-900/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-denim-900/80 z-50 transition-opacity"
+            style={{ willChange: 'opacity' }}
           />
 
           {/* Sidebar */}
@@ -29,6 +30,7 @@ export default function CartSidebar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            style={{ willChange: 'transform' }}
             className="fixed top-0 right-0 h-full w-full max-w-md bg-sand-50 shadow-2xl z-50 flex flex-col border-l-8 border-denim-900"
           >
             {/* Header */}
