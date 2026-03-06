@@ -35,10 +35,10 @@ export default function Footer({ onOpenLegalModal }: { onOpenLegalModal: (type: 
               <a href="https://www.instagram.com/denim._.o/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Instagram className="w-5 h-5 drop-shadow-sm" />
               </a>
-              <a href="mailto:contact@example.com" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
+              <a href="mailto:Hellodenimo@gmail.com" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Mail className="w-5 h-5 drop-shadow-sm" />
               </a>
-              <a href="tel:+919876543210" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
+              <a href="tel:+919484154267" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Phone className="w-5 h-5 drop-shadow-sm" />
               </a>
             </div>

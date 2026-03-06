@@ -100,7 +100,7 @@ export default function InstitutionalOrders() {
                 </p>
               </div>
             </div>
-            <a href="mailto:contact@example.com?subject=B2B%20Quote%20Request&body=Organization%2FCompany%20Name%3A%20%0D%0AContact%20Person%3A%20%0D%0AMobile%20No%3A%20%0D%0AEmail%3A%20%0D%0AProduct%20Category%20(e.g.%2C%20Conference%20Kits%2C%20Event%20Bags)%3A%20%0D%0AEstimated%20Quantity%3A%20%0D%0AExpected%20Delivery%20Date%3A%20%0D%0ADelivery%20Location%20(City%2FState)%3A%20%0D%0A%0D%0AAdditional%20Requirements%2FDetails%3A%20" className="inline-block skeuo-btn-sand text-denim-900 px-8 py-4 rounded-full font-bold text-lg">
+            <a href="mailto:Hellodenimo@gmail.com?subject=B2B%20Quote%20Request&body=Organization%2FCompany%20Name%3A%20%0D%0AContact%20Person%3A%20%0D%0AMobile%20No%3A%20%0D%0AEmail%3A%20%0D%0AProduct%20Category%20(e.g.%2C%20Conference%20Kits%2C%20Event%20Bags)%3A%20%0D%0AEstimated%20Quantity%3A%20%0D%0AExpected%20Delivery%20Date%3A%20%0D%0ADelivery%20Location%20(City%2FState)%3A%20%0D%0A%0D%0AAdditional%20Requirements%2FDetails%3A%20" className="inline-block skeuo-btn-sand text-denim-900 px-8 py-4 rounded-full font-bold text-lg">
               Request a B2B Quote
             </a>
           </div>
