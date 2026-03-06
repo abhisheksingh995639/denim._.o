@@ -150,11 +150,8 @@ export default function ImpactTracker() {
             </div>
 
             {/* Spinning Circular Text Badge */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              style={{ willChange: 'transform' }}
-              className="absolute -top-6 -right-2 md:-top-12 md:-right-12 w-28 h-28 md:w-40 md:h-40 skeuo-leather-patch skeuo-stitch rounded-full flex items-center justify-center shadow-2xl z-20"
+            <div
+              className="absolute -top-6 -right-2 md:-top-12 md:-right-12 w-28 h-28 md:w-40 md:h-40 skeuo-leather-patch skeuo-stitch rounded-full flex items-center justify-center shadow-2xl z-20 animate-[spin_20s_linear_infinite] will-change-transform"
             >
               <svg viewBox="0 0 100 100" className="w-full h-full p-2">
                 <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
@@ -165,7 +162,7 @@ export default function ImpactTracker() {
                 </text>
               </svg>
               <Recycle className="absolute w-6 h-6 md:w-8 md:h-8 text-sand-100 drop-shadow-md" />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
