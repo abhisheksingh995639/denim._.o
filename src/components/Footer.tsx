@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Instagram, Mail, Phone, Send } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { getMailtoLink } from '../utils/mail';
 import BrandLogo from './BrandLogo';
 
 export default function Footer({ onOpenLegalModal }: { onOpenLegalModal: (type: 'privacy' | 'terms' | 'our-story') => void }) {
+  const currentYear = new Date().getFullYear();
+  const contactMailto = getMailtoLink('abhisheksingh9956390506@gmail.com');
+
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -35,7 +39,7 @@ export default function Footer({ onOpenLegalModal }: { onOpenLegalModal: (type: 
               <a href="https://www.instagram.com/denim._.o/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Instagram className="w-5 h-5 drop-shadow-sm" />
               </a>
-              <a href="mailto:abhisheksingh9956390506@gmail.com" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
+              <a href={contactMailto} className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">
                 <Mail className="w-5 h-5 drop-shadow-sm" />
               </a>
               <a href="tel:+919484154267" className="w-10 h-10 rounded-full skeuo-inset-dark flex items-center justify-center text-sand-200 hover:text-leather-500 transition-colors">

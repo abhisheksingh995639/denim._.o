@@ -1,7 +1,12 @@
 import { motion } from 'motion/react';
 import { Briefcase, ShieldCheck, Truck, Building2 } from 'lucide-react';
+import { getMailtoLink } from '../utils/mail';
 
 export default function InstitutionalOrders() {
+  const b2bSubject = "B2B Quote Request";
+  const b2bBody = `Organization/Company Name: \r\nContact Person: \r\nMobile No: \r\nEmail: \r\nProduct Category (e.g., Conference Kits, Event Bags): \r\nEstimated Quantity: \r\nExpected Delivery Date: \r\nDelivery Location (City/State): \r\n\r\nAdditional Requirements/Details: `;
+  const b2bMailto = getMailtoLink('abhisheksingh9956390506@gmail.com', b2bSubject, b2bBody);
+
   return (
     <section id="b2b" className="py-32 bg-texture-sand relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-1 border-t border-dashed border-leather-500 opacity-50"></div>
@@ -100,7 +105,7 @@ export default function InstitutionalOrders() {
                 </p>
               </div>
             </div>
-            <a href="mailto:abhisheksingh9956390506@gmail.com?subject=B2B%20Quote%20Request&body=Organization%2FCompany%20Name%3A%20%0D%0AContact%20Person%3A%20%0D%0AMobile%20No%3A%20%0D%0AEmail%3A%20%0D%0AProduct%20Category%20(e.g.%2C%20Conference%20Kits%2C%20Event%20Bags)%3A%20%0D%0AEstimated%20Quantity%3A%20%0D%0AExpected%20Delivery%20Date%3A%20%0D%0ADelivery%20Location%20(City%2FState)%3A%20%0D%0A%0D%0AAdditional%20Requirements%2FDetails%3A%20" className="inline-block skeuo-btn-sand text-denim-900 px-8 py-4 rounded-full font-bold text-lg">
+            <a href={b2bMailto} className="inline-block skeuo-btn-sand text-denim-900 px-8 py-4 rounded-full font-bold text-lg">
               Request a B2B Quote
             </a>
           </div>

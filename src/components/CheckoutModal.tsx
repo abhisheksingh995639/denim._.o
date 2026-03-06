@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle, Truck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { getMailtoLink } from '../utils/mail';
 import React, { useState } from 'react';
 
 export default function CheckoutModal() {
@@ -41,10 +42,14 @@ Looking forward to receiving my order!
 Thank you,
 ${data.name}`;
 
-        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=abhisheksingh9956390506@gmail.com&su=${encodeURIComponent(`New Order from ${data.name}`)}&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = getMailtoLink('abhisheksingh9956390506@gmail.com', `New Order from ${data.name}`, emailBody);
 
-        // Open Gmail compose link in a new tab
-        window.open(mailtoLink, '_blank');
+        // Open Gmail compose link
+        if (mailtoLink.startsWith('intent:') || mailtoLink.startsWith('mailto:')) {
+            window.location.href = mailtoLink;
+        } else {
+            window.open(mailtoLink, '_blank');
+        }
 
         // Simulate success
         setTimeout(() => {
